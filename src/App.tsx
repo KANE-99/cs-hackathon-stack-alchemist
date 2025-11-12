@@ -12,6 +12,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { EntryProps } from "../src/typescript/layout";
 import AllFields from "./pages/data";
 import TestPage from "./pages/test-page";
+import DecoderTest from "./pages/decoder-test";
 
 function App() {
   const [getEntry, setEntry] = useState({} as EntryProps);
@@ -23,6 +24,8 @@ function App() {
   return (
     <div className="App" data-testid="app">
       <Routes>
+        {/* Standalone decoder test page (no layout) */}
+        <Route path="/decoder-test" element={<DecoderTest />} />
         <Route
           path="/locale/:locale"
           element={<Layout entry={getEntry} data-testid="layout" />}
