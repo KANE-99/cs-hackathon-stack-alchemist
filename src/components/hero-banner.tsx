@@ -2,6 +2,7 @@ import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 import { BannerProps } from "../typescript/banner";
 import { getImageStyles, getImageURL } from "../utils/ImageTransformations";
+import { decodeMetadataFromString } from "../utils/metadataEncoder";
 
 export default function HeroBanner(props: BannerProps) {
   const banner = props.hero_banner;
@@ -22,7 +23,7 @@ export default function HeroBanner(props: BannerProps) {
     <div
       className="hero-banner"
       style={{
-        background: banner.bg_color ? banner.bg_color : "",
+        background: banner.bg_color ? decodeMetadataFromString(banner.bg_color).cleanValue : "",
       }}
       data-testid="hero-banner"
     >
