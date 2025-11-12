@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SectionProps } from "../typescript/section";
 import { getMultilineHTML } from "../helper";
+import { decodeMetadataFromString } from "../utils/metadataEncoder";
 
 export default function Section({ section }: { section: SectionProps }) {
   function contentSection() {
@@ -38,6 +39,7 @@ export default function Section({ section }: { section: SectionProps }) {
   function imageContent() {
     return (
       <img
+        data-cslp={decodeMetadataFromString(section.image?.url).cleanValue}
         src={section.image?.url}
         alt={section.image?.filename}
         key="section-2"

@@ -30,7 +30,8 @@ export const getHeaderRes = async (
     locale,
   })) as any;
   const entry = response[0][0];
-  liveEdit && addEditableTags(entry, "header", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "header", true, entry?.locale || locale);
+  liveEdit && injectCslpData(entry, "header", true, entry?.locale || locale);
   return entry;
 };
 
@@ -44,7 +45,8 @@ export const getFooterRes = async (
     locale,
   })) as any;
   const entry = response[0][0];
-  liveEdit && addEditableTags(entry, "footer", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "footer", true, entry?.locale || locale);
+  liveEdit && injectCslpData(entry, "footer", true, entry?.locale || locale);
   return entry;
 };
 

@@ -108,6 +108,7 @@ export default function HeroBanner(props: BannerProps) {
           </div>
         ) : (
           <img
+            data-cslp={decodeMetadataFromString(banner.banner_image.url).cleanValue}
             alt={banner.banner_image.filename}
             src={banner.banner_image.url}
             data-testid="banner-image"
