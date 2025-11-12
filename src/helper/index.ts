@@ -29,7 +29,7 @@ export const getHeaderRes = async (
     locale,
   })) as any;
   const entry = response[0][0];
-  liveEdit && addEditableTags(entry, "header", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "header", true, entry?.locale || locale);
   return entry;
 };
 
@@ -88,7 +88,7 @@ export const getPageRes = async (
     entry = response.find((entry: EntryModel) => entry.uid === entry_uid);
   }
 
-  liveEdit && addEditableTags(entry, "page", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "page", true, entry?.locale || locale);
   return entry;
 };
 

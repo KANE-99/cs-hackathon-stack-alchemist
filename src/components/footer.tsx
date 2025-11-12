@@ -3,6 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import { NavLink, Link } from "react-router-dom";
 import parse from "html-react-parser";
 import { FooterProps, NavmenuProps, Social } from "../typescript/layout";
+import { decodeMetadataFromString } from "../utils/metadataEncoder";
 
 export default function Footer({
   footer,
@@ -24,7 +25,8 @@ export default function Footer({
             {footer.logo ? (
               <img
                 {...(footer.$?.logo as {})}
-                src={footer.logo.url}
+                src={decodeMetadataFromString(footer.logo.url).cleanValue}
+                data-cslp={decodeMetadataFromString(footer.logo.url).metadata?.cslp}
                 alt="contentstack logo"
                 title="contentstack"
                 className="logo footer-logo"
@@ -98,7 +100,8 @@ export default function Footer({
                 >
                   <img
                     {...(social.icon?.$?.url as {})}
-                    src={social.icon.url}
+                    src={decodeMetadataFromString(social.icon.url).cleanValue}
+                    data-cslp={decodeMetadataFromString(social.icon.url).metadata?.cslp}
                     alt="social icon"
                     data-testid={`footer-social-icon-${index}`}
                   />

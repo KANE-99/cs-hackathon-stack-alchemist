@@ -4,8 +4,10 @@ import parse from "html-react-parser";
 import Tooltip from "../components/too-tip";
 import Skeleton from "react-loading-skeleton";
 import { HeaderProps, HeadermenuProps, List } from "../typescript/layout";
+import { decodeMetadataFromString } from "../utils/metadataEncoder";
 
 const NavLinkHOC = (list: List) => {
+  console.log("🚀 ~ NavLinkHOC ~ list:", list)
   const hasURL =
     list.page_reference &&
     list.page_reference.length &&
@@ -56,7 +58,8 @@ export default function Header({
               <img
                 {...(header.logo?.$?.url as {})}
                 className="logo"
-                src={header.logo.url}
+                src={decodeMetadataFromString(header.logo.url).cleanValue}
+                data-cslp={decodeMetadataFromString(header.logo.url).metadata?.cslp}
                 alt={header.logo.filename}
                 data-testid="logo-img"
               />

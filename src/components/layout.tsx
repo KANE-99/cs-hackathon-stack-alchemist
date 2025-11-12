@@ -16,6 +16,8 @@ import {
   HeadermenuProps,
 } from "../typescript/layout";
 import { cloneDeep } from "lodash";
+import { encodeMetadataIntoString } from "../utils/metadataEncoder";
+import { injectCslpData } from "../utils/injectCslpData";
 
 export default function Layout({ entry }: { entry: EntryProps }) {
   const history = useNavigate();
@@ -39,6 +41,10 @@ export default function Layout({ entry }: { entry: EntryProps }) {
     try {
       const header = await getHeaderRes(locale);
       const footer = await getFooterRes(locale);
+      injectCslpData(header, 'header', true, locale)
+      console.log("🚀 ~ fetchData ~ header:", header)
+      injectCslpData(footer, 'footer', true, locale)
+      console.log("🚀 ~ fetchData ~ footer:", footer)
       const allEntry = await getAllEntries(locale);
       if (!header || !footer) return;
       const navHeaderList = cloneDeep(header.navigation_menu);
@@ -97,9 +103,14 @@ export default function Layout({ entry }: { entry: EntryProps }) {
         });
       }
 
+      // injectCslpData(navHeaderList, 'navHeaderList', true, locale)
+      // injectCslpData(navFooterList, 'navFooterList', true, locale)
+      console.log("🚀 ~ fetchData ~ header:", header)
+      console.log("🚀 ~ fetchData ~ footer:", footer)
+
       setLayout({
-        header: header,
-        footer: footer,
+        header, 
+        footer,
         navHeaderList,
         navFooterList,
       });

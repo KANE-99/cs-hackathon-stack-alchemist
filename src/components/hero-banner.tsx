@@ -2,10 +2,13 @@ import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 import { BannerProps } from "../typescript/banner";
 import { getImageStyles, getImageURL } from "../utils/ImageTransformations";
+import { decodeMetadataFromString } from "../utils/metadataEncoder";
 
 export default function HeroBanner(props: BannerProps) {
+  console.log(props, 'props')
   const banner = props.hero_banner;
 
+  
   let bannerImageCustom = null;
   if (banner.banner_image_custom) {
     const bannerImgOptions =
@@ -17,6 +20,8 @@ export default function HeroBanner(props: BannerProps) {
       styles: getImageStyles(bannerImgOptions),
     };
   }
+  
+  
 
   return (
     <div
@@ -109,9 +114,10 @@ export default function HeroBanner(props: BannerProps) {
             {banner.banner_image.map((image, index) => (
               <img
                 key={`banner-image-${index}`}
-                {...((banner.$ as any)?.[`banner_image__${index}`] as {})}
+                // {...((banner.$ as any)?.[`banner_image__${index}`] as {})}
+                data-cslp={decodeMetadataFromString(image.url).metadata?.cslp}
                 alt={image.filename}
-                src={image.url}
+                src={decodeMetadataFromString(image.url).cleanValue}
                 data-testid={`banner-image-${index}`}
               />
             ))}
@@ -120,7 +126,8 @@ export default function HeroBanner(props: BannerProps) {
           <img
             {...(banner.banner_image?.$?.url as {})}
             alt={banner.banner_image.filename}
-            src={banner.banner_image.url}
+            src={decodeMetadataFromString(banner.banner_image.url).cleanValue}
+            data-cslp={decodeMetadataFromString(banner.banner_image.url).metadata?.cslp}
             data-testid="banner-image"
           />
         )

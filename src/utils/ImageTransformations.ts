@@ -1,6 +1,8 @@
 // @ts-nocheck
 // https://github.com/contentstack/app-utils/blob/main/image-preset-builder/javascript/ImageTransformation.js
 
+import { decodeMetadataFromString } from "./metadataEncoder";
+
 const filterBGColor = (color) => {
   return color[0] === "#" ? color.slice(1) : color;
 };

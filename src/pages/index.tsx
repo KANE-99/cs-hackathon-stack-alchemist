@@ -6,6 +6,7 @@ import { getPageRes } from "../helper";
 import Skeleton from "react-loading-skeleton";
 import { PageEntry, Prop } from "../typescript/pages";
 import { useLivePreviewCtx } from "../context/live-preview-context-provider";
+import { injectCslpData } from "../utils/injectCslpData";
 
 export default function Home({ entry }: Prop) {
   const lpTs = useLivePreviewCtx();
@@ -18,6 +19,10 @@ export default function Home({ entry }: Prop) {
   async function fetchData() {
     try {
       const result = await getPageRes(entryUrl, params.locale);
+      console.log("🚀 ~ fetchData ~ result:", result)
+      // console.log("🚀 ~ fetchData ~ result:", result)
+      injectCslpData(result, "page", true, params.locale);
+      console.log("🚀 ~ fetchData ~ result after injectCslpData:", result)
       if (!result) return;
       setEntries({ ...result });
       entry({ page: result });
