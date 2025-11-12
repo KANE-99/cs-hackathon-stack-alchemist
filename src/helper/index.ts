@@ -1,5 +1,6 @@
 import { addEditableTags } from "@contentstack/utils";
 import Stack from "../sdk/entry";
+import { injectCslpData } from "../utils/injectCslpData";
 
 const liveEdit = true;
 
@@ -88,7 +89,8 @@ export const getPageRes = async (
     entry = response.find((entry: EntryModel) => entry.uid === entry_uid);
   }
 
-  liveEdit && addEditableTags(entry, "page", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "page", true, entry?.locale || locale);
+  liveEdit && injectCslpData(entry, "page", true, entry?.locale || locale);
   return entry;
 };
 
