@@ -29,11 +29,9 @@ export default function HeroBanner(props: BannerProps) {
       <div
         className="home-content"
         style={{ color: banner.text_color ? banner.text_color : "#222" }}
-        {...(banner?.$?.text_color as {})}
         data-testid="home-content"
       >
         <h1
-          {...(banner?.$?.banner_title as {})}
           className="hero-title"
           data-testid="banner-title"
         >
@@ -43,15 +41,11 @@ export default function HeroBanner(props: BannerProps) {
         {banner.banner_description ? (
           Array.isArray(banner.banner_description) ? (
             <div
-              {...((banner.$ as any)?.banner_description as {})}
               data-testid="banner-description-container"
             >
               {banner.banner_description.map((description, index) => (
                 <p
                   key={`banner-description-${index}`}
-                  {...((banner.$ as any)?.[
-                    `banner_description__${index}`
-                  ] as {})}
                   className="hero-description multiline-field"
                   style={{
                     color: banner.text_color || "#737b7d",
@@ -64,7 +58,6 @@ export default function HeroBanner(props: BannerProps) {
             </div>
           ) : (
             <p
-              {...((banner.$ as any)?.banner_description as {})}
               className="hero-description multiline-field"
               style={{
                 color: banner.text_color || "#737b7d",
@@ -79,7 +72,6 @@ export default function HeroBanner(props: BannerProps) {
         )}
         {banner.call_to_action.title && banner.call_to_action.href ? (
           <Link
-            {...banner.call_to_action?.$?.title}
             to={banner.call_to_action.href}
             className="btn tertiary-btn"
             data-testid="call-to-action"
@@ -93,7 +85,6 @@ export default function HeroBanner(props: BannerProps) {
 
       {bannerImageCustom ? (
         <img
-          {...(bannerImageCustom.cslp as {})}
           alt={bannerImageCustom.alt}
           src={bannerImageCustom.src}
           style={bannerImageCustom.styles}
@@ -103,13 +94,11 @@ export default function HeroBanner(props: BannerProps) {
       {banner.banner_image && !bannerImageCustom ? (
         Array.isArray(banner.banner_image) ? (
           <div
-            {...((banner.$ as any)?.banner_image as {})}
             data-testid="banner-image-container"
           >
             {banner.banner_image.map((image, index) => (
               <img
                 key={`banner-image-${index}`}
-                {...((banner.$ as any)?.[`banner_image__${index}`] as {})}
                 alt={image.filename}
                 src={image.url}
                 data-testid={`banner-image-${index}`}
@@ -118,7 +107,6 @@ export default function HeroBanner(props: BannerProps) {
           </div>
         ) : (
           <img
-            {...(banner.banner_image?.$?.url as {})}
             alt={banner.banner_image.filename}
             src={banner.banner_image.url}
             data-testid="banner-image"

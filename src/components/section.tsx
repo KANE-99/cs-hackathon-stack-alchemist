@@ -8,14 +8,13 @@ export default function Section({ section }: { section: SectionProps }) {
     return (
       <div className="home-content" key="section-1" data-testid="home-content">
         {section.title_h2 && (
-          <h2 {...(section?.$?.title_h2 as {})} data-testid="section-title">
+          <h2 data-testid="section-title">
             {section.title_h2}
           </h2>
         )}
         {section.description && (
           <p
             className="multiline-field"
-            {...(section?.$?.description as {})}
             data-testid="section-description"
           >
             {section.description}
@@ -23,7 +22,6 @@ export default function Section({ section }: { section: SectionProps }) {
         )}
         {section.call_to_action.title && section.call_to_action.href ? (
           <Link
-            {...section.call_to_action?.$?.title}
             to={section.call_to_action.href}
             className="btn secondary-btn"
             data-testid="call-to-action"
@@ -40,7 +38,6 @@ export default function Section({ section }: { section: SectionProps }) {
   function imageContent() {
     return (
       <img
-        {...(section.image?.$?.url as {})}
         src={section.image?.url}
         alt={section.image?.filename}
         key="section-2"

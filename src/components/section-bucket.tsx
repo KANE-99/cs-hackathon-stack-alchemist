@@ -9,13 +9,12 @@ export default function SectionBucket({ section }: { section: BucketProps }) {
     <div className="member-main-section" data-testid="section-bucket">
       <div className="member-head" data-testid="member-head">
         {section.title_h2 && (
-          <h2 {...(section?.$?.title_h2 as {})} data-testid="section-title">
+          <h2 data-testid="section-title">
             {section.title_h2}
           </h2>
         )}
         {section.description && (
           <p
-            {...(section?.$?.description as {})}
             dangerouslySetInnerHTML={getMultilineHTML(section.description)}
             data-testid="section-description"
           ></p>
@@ -23,19 +22,16 @@ export default function SectionBucket({ section }: { section: BucketProps }) {
       </div>
       <div
         className="member-section"
-        {...(section?.$?.["buckets"] || {})}
         data-testid="member-section"
       >
         {section.buckets?.map((bucket, idx) => (
           <div
             className="content-section"
             key={`content-section-${idx}`}
-            {...(section?.$?.["buckets__" + idx] as {})}
             data-testid={`content-section-${idx}`}
           >
             {bucket.icon && (
               <img
-                {...(bucket.icon?.$?.url as {})}
                 src={bucket.icon.url}
                 alt="bucket icon"
                 data-testid={`bucket-icon-${idx}`}
@@ -44,7 +40,6 @@ export default function SectionBucket({ section }: { section: BucketProps }) {
 
             {bucket.title_h3 ? (
               <h3
-                {...(bucket?.$?.title_h3 as {})}
                 data-testid={`bucket-title-${idx}`}
               >
                 {bucket.title_h3}
@@ -53,7 +48,6 @@ export default function SectionBucket({ section }: { section: BucketProps }) {
               ""
             )}
             <div
-              {...(bucket?.$?.description as {})}
               data-testid={`bucket-description-${idx}`}
             >
               {bucket.description && parse(bucket.description)}
@@ -63,7 +57,6 @@ export default function SectionBucket({ section }: { section: BucketProps }) {
                 to={
                   bucket.call_to_action.href ? bucket.call_to_action.href : "#"
                 }
-                {...bucket.call_to_action?.$?.title}
                 data-testid={`bucket-cta-${idx}`}
               >
                 {`${bucket.call_to_action.title} -->`}
