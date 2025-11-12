@@ -25,7 +25,7 @@ export default function Footer({
             {footer.logo ? (
               <img
                 {...(footer.$?.logo as {})}
-                src={decodeMetadataFromString(footer.logo.url).cleanValue}
+                src={footer.logo.url}
                 data-cslp={decodeMetadataFromString(footer.logo.url).metadata?.cslp}
                 alt="contentstack logo"
                 title="contentstack"
@@ -100,7 +100,7 @@ export default function Footer({
                 >
                   <img
                     {...(social.icon?.$?.url as {})}
-                    src={decodeMetadataFromString(social.icon.url).cleanValue}
+                    src={social.icon.url}
                     data-cslp={decodeMetadataFromString(social.icon.url).metadata?.cslp}
                     alt="social icon"
                     data-testid={`footer-social-icon-${index}`}

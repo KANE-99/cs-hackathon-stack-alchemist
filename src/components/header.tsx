@@ -58,7 +58,7 @@ export default function Header({
               <img
                 {...(header.logo?.$?.url as {})}
                 className="logo"
-                src={decodeMetadataFromString(header.logo.url).cleanValue}
+                src={header.logo.url}
                 data-cslp={decodeMetadataFromString(header.logo.url).metadata?.cslp}
                 alt={header.logo.filename}
                 data-testid="logo-img"

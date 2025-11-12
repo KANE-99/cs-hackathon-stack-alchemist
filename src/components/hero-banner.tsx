@@ -27,7 +27,7 @@ export default function HeroBanner(props: BannerProps) {
     <div
       className="hero-banner"
       style={{
-        background: banner.bg_color ? banner.bg_color : "",
+        background: banner.bg_color ? decodeMetadataFromString(banner.bg_color).cleanValue : "",
       }}
       data-testid="hero-banner"
     >
@@ -117,7 +117,7 @@ export default function HeroBanner(props: BannerProps) {
                 // {...((banner.$ as any)?.[`banner_image__${index}`] as {})}
                 data-cslp={decodeMetadataFromString(image.url).metadata?.cslp}
                 alt={image.filename}
-                src={decodeMetadataFromString(image.url).cleanValue}
+                src={image.url}
                 data-testid={`banner-image-${index}`}
               />
             ))}
@@ -126,7 +126,7 @@ export default function HeroBanner(props: BannerProps) {
           <img
             {...(banner.banner_image?.$?.url as {})}
             alt={banner.banner_image.filename}
-            src={decodeMetadataFromString(banner.banner_image.url).cleanValue}
+            src={banner.banner_image.url}
             data-cslp={decodeMetadataFromString(banner.banner_image.url).metadata?.cslp}
             data-testid="banner-image"
           />

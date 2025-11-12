@@ -55,57 +55,56 @@ const Sections = (props: { component: Component; blogsPage?: boolean }) => {
       />
     );
   }
-  // if (component.section) {
-  //   return <Section section={component.section} data-testid="section" />;
-  //   return null
-  // }
-  // if (component.section_with_buckets) {
-  //   return component.section_with_buckets.bucket_tabular ? (
-  //     <AboutSectionBucket
-  //       sectionWithBuckets={component.section_with_buckets}
-  //       data-testid="about-section-bucket"
-  //     />
-  //   ) : (
-  //     <SectionBucket
-  //       section={component.section_with_buckets}
-  //       data-testid="section-bucket"
-  //     />
-  //   );
-  // }
-  // if (component.from_blog) {
-  //   return (
-  //     <BlogSection blogs={component.from_blog} data-testid="blog-section" />
-  //   );
-  // }
-  // if (component.section_with_cards) {
-  //   return (
-  //     <CardSection
-  //       dataCslp={component?.section_with_cards?.$}
-  //       cards={component.section_with_cards.cards}
-  //       data-testid="card-section"
-  //     />
-  //   );
-  // }
-  // if (component.section_with_html_code) {
-  //   return (
-  //     <SectionWithHtmlCode
-  //       embedObject={component.section_with_html_code}
-  //       data-testid="section-with-html-code"
-  //     />
-  //   );
-  // }
-  // if (component.our_team) {
-  //   return (
-  //     <TeamSection ourTeam={component.our_team} data-testid="team-section" />
-  //   );
-  // }
-  // if (component.section_with_multiple_images) {
-  //   return (
-  //     <SectionWithMultipleImages
-  //       section={component.section_with_multiple_images}
-  //       data-testid="section-with-multiple-images"
-  //     />
-  //   );
-  // }
+  if (component.section) {
+    return <Section section={component.section} data-testid="section" />;
+  }
+  if (component.section_with_buckets) {
+    return component.section_with_buckets.bucket_tabular ? (
+      <AboutSectionBucket
+        sectionWithBuckets={component.section_with_buckets}
+        data-testid="about-section-bucket"
+      />
+    ) : (
+      <SectionBucket
+        section={component.section_with_buckets}
+        data-testid="section-bucket"
+      />
+    );
+  }
+  if (component.from_blog) {
+    return (
+      <BlogSection blogs={component.from_blog} data-testid="blog-section" />
+    );
+  }
+  if (component.section_with_cards) {
+    return (
+      <CardSection
+        dataCslp={component?.section_with_cards?.$}
+        cards={component.section_with_cards.cards}
+        data-testid="card-section"
+      />
+    );
+  }
+  if (component.section_with_html_code) {
+    return (
+      <SectionWithHtmlCode
+        embedObject={component.section_with_html_code}
+        data-testid="section-with-html-code"
+      />
+    );
+  }
+  if (component.our_team) {
+    return (
+      <TeamSection ourTeam={component.our_team} data-testid="team-section" />
+    );
+  }
+  if (component.section_with_multiple_images) {
+    return (
+      <SectionWithMultipleImages
+        section={component.section_with_multiple_images}
+        data-testid="section-with-multiple-images"
+      />
+    );
+  }
   return <></>;
 };
