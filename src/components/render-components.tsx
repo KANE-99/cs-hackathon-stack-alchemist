@@ -16,7 +16,6 @@ export default function RenderComponents(props: RenderProps) {
   const { pageComponents, blogsPage, contentTypeUid, entryUid, locale } = props;
   return (
     <div
-      {...(props.cslp?.page_components || {})}
       className={
         pageComponents?.length
           ? "main-content"
@@ -29,7 +28,6 @@ export default function RenderComponents(props: RenderProps) {
       {pageComponents?.map((component, key: number) => (
         <div
           key={`component-${key}`}
-          {...props.cslp?.["page_components__" + key]}
           data-testid={`page-component-${key}`}
         >
           <Sections component={component} blogsPage={blogsPage} />

@@ -15,7 +15,6 @@ const NavLinkHOC = (list: List) => {
 
   return (
     <NavLink
-      {...list?.$?.label}
       to={hasURL ? list.page_reference[0].url : ""}
       className={hasURL && match ? "active" : ""}
       data-testid={`nav-link-${list.label}`}
@@ -37,7 +36,6 @@ export default function Header({
       {Object.keys(header).length ? (
         <div
           className="note-div"
-          {...(header.notification_bar?.$?.announcement_text as {})}
           data-testid="note-div"
         >
           {header.notification_bar.show_announcement &&
@@ -54,7 +52,6 @@ export default function Header({
           {header.logo ? (
             <Link to="/" title="Contentstack" data-testid="logo-link">
               <img
-                {...(header.logo?.$?.url as {})}
                 className="logo"
                 src={header.logo.url}
                 alt={header.logo.filename}

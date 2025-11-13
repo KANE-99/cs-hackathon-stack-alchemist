@@ -1,5 +1,6 @@
 import { addEditableTags } from "@contentstack/utils";
 import Stack from "../sdk/entry";
+import { injectCslpData } from "../utils/injectCslpData";
 
 const liveEdit = true;
 
@@ -29,7 +30,8 @@ export const getHeaderRes = async (
     locale,
   })) as any;
   const entry = response[0][0];
-  liveEdit && addEditableTags(entry, "header", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "header", true, entry?.locale || locale);
+  liveEdit && injectCslpData(entry, "header", true, entry?.locale || locale);
   return entry;
 };
 
@@ -43,7 +45,8 @@ export const getFooterRes = async (
     locale,
   })) as any;
   const entry = response[0][0];
-  liveEdit && addEditableTags(entry, "footer", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "footer", true, entry?.locale || locale);
+  liveEdit && injectCslpData(entry, "footer", true, entry?.locale || locale);
   return entry;
 };
 
@@ -88,7 +91,8 @@ export const getPageRes = async (
     entry = response.find((entry: EntryModel) => entry.uid === entry_uid);
   }
 
-  liveEdit && addEditableTags(entry, "page", true, entry?.locale || locale);
+  // liveEdit && addEditableTags(entry, "page", true, entry?.locale || locale);
+  liveEdit && injectCslpData(entry, "page", true, entry?.locale || locale);
   return entry;
 };
 

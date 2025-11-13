@@ -5,7 +5,7 @@
   "private": true,
   "author": "Contentstack",
   "dependencies": {
-    "@contentstack/live-preview-utils": "^4.1.0",
+    "@contentstack/live-preview-utils": "file:contentstack-live-preview-hidden-cslp.tgz",
     "@contentstack/utils": "^1.4.4",
     "@textea/json-viewer": "^3.0.0",
     "@types/react": "^18.0.25",
@@ -15,6 +15,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "post-robot": "^10.0.46",
+    "preact": "^10.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loading-skeleton": "^3.1.0",
@@ -25,7 +26,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm:start:http\" \"npm:start:https\"",
+    "start": "react-scripts start",
     "start:http": "react-scripts start",
     "start:https": "HTTPS=true PORT=3007 react-scripts start",
     "build": "react-scripts build",

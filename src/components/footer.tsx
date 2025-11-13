@@ -17,13 +17,11 @@ export default function Footer({
       <div className="max-width footer-div" data-testid="footer-div">
         <div className="col-quarter" data-testid="footer-logo-container">
           <Link
-            {...(footer.logo?.$?.url as {})}
             to="/"
             data-testid="footer-logo-link"
           >
             {footer.logo ? (
               <img
-                {...(footer.$?.logo as {})}
                 src={footer.logo.url}
                 alt="contentstack logo"
                 title="contentstack"
@@ -38,16 +36,12 @@ export default function Footer({
         <div className="col-half" data-testid="footer-nav-container">
           <nav data-testid="footer-nav">
             <ul
-              {...(footer.navigation?.$?.link as {})}
               className="nav-ul"
               data-testid="footer-nav-ul"
             >
               {navMenu.length ? (
                 navMenu?.map((link, index) => (
                   <li
-                    {...((footer.navigation.link.length > index
-                      ? footer.navigation.$[`link__${index}`]
-                      : "") as {})}
                     key={`footer-nav-li-${index}`}
                     className="footer-nav-li"
                     data-testid={`footer-nav-li-${index}`}
@@ -57,9 +51,6 @@ export default function Footer({
                       data-testid={`footer-nav-link-${index}`}
                     >
                       <span
-                        {...((footer.navigation.link.length <= index
-                          ? link.$.title
-                          : "") as {})}
                         data-testid={`footer-nav-link-title-${index}`}
                       >
                         {link.title}
@@ -84,7 +75,6 @@ export default function Footer({
         >
           <div
             className="social-nav"
-            {...footer?.social?.$?.social_share}
             data-testid="footer-social-nav"
           >
             {Object.keys(footer).length ? (
@@ -93,11 +83,9 @@ export default function Footer({
                   href={social.link.href}
                   title={social.link.title}
                   key={`social-share-${index}`}
-                  {...footer?.social?.$?.["social_share__" + index]}
                   data-testid={`footer-social-link-${index}`}
                 >
                   <img
-                    {...(social.icon?.$?.url as {})}
                     src={social.icon.url}
                     alt="social icon"
                     data-testid={`footer-social-icon-${index}`}
@@ -118,7 +106,6 @@ export default function Footer({
       {footer.copyright ? (
         <div
           className="copyright"
-          {...(footer?.$?.copyright as {})}
           data-testid="footer-copyright"
         >
           {parse(footer.copyright)}
