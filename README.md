@@ -40,9 +40,8 @@ The Live Preview SDK automatically detects this encoded metadata and enables all
 **With Encoded Source Mapping:**
 ```javascript
 // One function call, automatic field mapping
-const entry = await stack.getEntry({
-  encodeSourceMapping: true
-});
+const entry = await stack.getEntry({ ... });
+injectCslpData(entry, "page", true);
 // Use data normally - editing works automatically
 <h1>{entry.title}</h1>
 <p>{entry.description}</p>
