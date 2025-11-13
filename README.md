@@ -1,4 +1,8 @@
 ## Encoded Data CSLP / Field Source Mapping
+
+### Demo
+Website link: https://encoded-data-cslp.devcontentstackapps.com/
+
 ### The Problem
 When implementing Contentstack's Live Preview with Visual Builder capabilities, developers face a significant manual overhead. To enable the "click-to-edit" functionality that allows jumping directly from webpage elements to CMS entries, developers must:
 1. Use the `addEditableTags()` function to get field-path metadata
