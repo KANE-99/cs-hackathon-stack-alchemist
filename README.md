@@ -4,6 +4,7 @@ When implementing Contentstack's Live Preview with Visual Builder capabilities, 
 1. Use the `addEditableTags()` function to get field-path metadata
 2. Manually wrap every content field in their components
 3. Attach `data-cslp` attributes with the correct path for each field
+
 This process is time-consuming, error-prone, and doesn't scale well. On a site with multiple pages or dozens of components, a developer might spend significant time just mapping fields. Any mismatch in field paths results in broken edit buttons or incorrect entry navigation. The manual nature of this implementation creates friction in the developer experience and increases the risk of mistakes.
 ### The Solution Discovery
 Our team recognized that the core issue wasn't the need for metadata — it was the separation between data and its metadata. We asked ourselves: "What if the data itself could carry everything it needs?"
