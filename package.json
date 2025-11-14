@@ -5,7 +5,7 @@
   "private": true,
   "author": "Contentstack",
   "dependencies": {
-    "@contentstack/live-preview-utils": "file:contentstack-live-preview-hidden-cslp.tgz",
+    "@contentstack/live-preview-utils": "file:contentstack-live-preview-final-cslp.tgz",
     "@contentstack/utils": "^1.4.4",
     "@textea/json-viewer": "^3.0.0",
     "@types/react": "^18.0.25",
