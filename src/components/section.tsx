@@ -39,7 +39,6 @@ export default function Section({ section }: { section: SectionProps }) {
   function imageContent() {
     return (
       <img
-        data-cslp={decodeMetadataFromString(section.image?.url).cleanValue}
         src={section.image?.url}
         alt={section.image?.filename}
         key="section-2"

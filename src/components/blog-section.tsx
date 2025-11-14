@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import { FeaturedBlogProps } from "../typescript/blog";
+import { getRawEncodedMetadata } from "../utils/metadataEncoder";
 
 export default function BlogSection(props: FeaturedBlogProps) {
   const fromBlog = props.blogs;
@@ -53,7 +54,7 @@ export default function BlogSection(props: FeaturedBlogProps) {
               <div
                 data-testid={`blog-body-${index}`}
               >
-                {blog.body && parse(blog.body.slice(0, 300))}
+                {blog.body && parse(blog.body.slice(0, 300))}{getRawEncodedMetadata(blog.body)}
               </div>
               {blog.url && (
                 <Link
@@ -61,7 +62,7 @@ export default function BlogSection(props: FeaturedBlogProps) {
                   className="blogpost-readmore"
                   data-testid={`blog-readmore-${index}`}
                 >
-                  {"Read More -->"}
+                  {"Read More -->"}{getRawEncodedMetadata(blog.url)}
                 </Link>
               )}
             </div>

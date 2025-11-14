@@ -189,3 +189,24 @@ const CHARS = {
     return attributes;
   }
   
+
+  /**
+ * Extracts the raw encoded metadata string (including markers) without decoding
+ * @param value - String value that may contain encoded metadata
+ * @returns The raw encoded metadata string, or null if not found
+ */
+export function getRawEncodedMetadata(value: any): string | null {
+  if (!value || typeof value !== 'string') {
+    return null;
+  }
+  
+  const startIndex = value.indexOf(CHARS.START);
+  const endIndex = value.indexOf(CHARS.END);
+  
+  if (startIndex === -1 || endIndex === -1 || startIndex >= endIndex) {
+    return null;
+  }
+  
+  // Return the encoded part including START and END markers
+  return value.substring(startIndex, endIndex + 1);
+}
